@@ -1,0 +1,21 @@
+/* Wide Mobile Layout: 480px.
+ * Gutters: 24px.
+ * Outer margins: 22px.
+ * Inherits styles from: Default Layout, Mobile Layout.  */
+
+$columns: 5;
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  #{$less-grid-element} {
+    @include grid($columns);
+  }
+  #main {
+		@include un-main;
+		.masonry {
+			margin-left: 92px;
+		}
+	}
+	#sidebar {
+		@include un-sidebar;
+	}
+}

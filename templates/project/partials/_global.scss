@@ -1,0 +1,23 @@
+// Global style definitions
+
+h1 {
+  @extend .bigger; }
+
+h2 {
+  @extend .big; }
+
+h3 {
+  @extend .big; }
+
+h4 {
+  @extend .big; }
+
+small {
+  @extend .small; }
+
+body {
+  // Stops Mobile Safari from auto-adjusting font-sizes
+  -webkit-text-size-adjust: 100%; }
+
+// Selection colors (easy to forget)
+@include selection-color(unquote("rgb(255,255,158)"));

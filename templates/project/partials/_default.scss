@@ -1,0 +1,47 @@
+/* Default Layout: 992px.
+ * Gutters: 24px.
+ * Outer margins: 48px.
+ * Leftover space for scrollbars @1024px: 32px.  */
+
+$columns: 10;
+$sidebar-column: 3;
+
+#{$less-grid-element} {
+	@include grid($columns);
+	margin: 0 auto;
+}
+
+#hd {
+	padding: 10px;
+	background: #ccc;
+}
+
+#main {
+	@include main( $columns, $columns - $sidebar-column , right );
+	padding: 10px 0;
+	.masonry {
+		margin-left: 46px;
+	}
+}
+#sidebar {
+	@include sidebar( $columns, $sidebar-column, left );
+	padding: 10px 0;
+	background: black;
+	color: white;
+}
+
+#ft {
+	padding: 10px;
+	background: #ccc;
+}
+
+.masonry {
+	margin-right: -24px;
+	@include masonry(7);
+	.box {
+		background: #666;
+	}
+	&.masoned .box {
+		// @include transition('top, left', .3s);
+	}
+}

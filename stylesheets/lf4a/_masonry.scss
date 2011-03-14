@@ -1,0 +1,13 @@
+@mixin masonry($columns) {
+	.box {
+		margin: 0 24px 24px 0;
+		float: left;
+		position: relative;
+		clear: none;
+	}
+	@for $i from 1 through $columns {
+		.col#{$i} {
+		  width: (68px * $i) + (24px * ($i - 1));
+		}
+	}
+}

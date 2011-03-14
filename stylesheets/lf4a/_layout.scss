@@ -1,0 +1,55 @@
+// layout
+
+$column-width: 68px;
+$gutter-width: 24px;
+
+@mixin main($columns, $main-column, $main-location) {
+	clear: none;
+	width: 100%;
+	float: $main-location;
+	@if $main-location == left {
+		margin: 0 ( - ( $column-width + $gutter-width ) * ( $columns - $main-column ) ) 0 0;
+		.inner {
+			margin-right: ( $column-width + $gutter-width ) * ( $columns - $main-column );
+		}
+	}
+	@if $main-location == right {
+		margin: 0 0 0 ( - ( $column-width + $gutter-width ) * ( $columns - $main-column ) );
+		.inner {
+			margin-left: ( $column-width + $gutter-width ) * ( $columns - $main-column );
+		}
+	}
+}
+
+@mixin sidebar($columns, $sidebar-column, $sidebar-location) {
+	clear: none;
+	width: ( $column-width + $gutter-width ) * $sidebar-column - $gutter-width;
+	.inner {
+		overflow: hidden;
+	}
+	@if $sidebar-location == right {
+		float: right;
+	}
+	@if $sidebar-location == left {
+		float: left;
+	}
+}
+
+@mixin un-main {
+	clear: both;
+	width: auto;
+	float: none;
+	margin: 0;
+	.inner {
+		margin: 0;
+	}
+}
+
+@mixin un-sidebar {
+	clear: both;
+	width: auto;
+	float: none;
+	.inner {
+		overflow: visible;
+	}
+}
