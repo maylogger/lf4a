@@ -1,17 +1,6 @@
 jQuery.fn.clearCol = function() {
     return this.each(function() {
-    	var saveCol = 'save'
-			$(this).removeClass(function(index, cls) {
-			    var classes = cls.split(' ');
-			    var result = new Array();
-			    $.each(classes, function(index, value) {
-			    	if(value.substring(0, 3) == 'col') {
-			        result.push(value);
-			        saveCol = saveCol + value;
-			      }
-			    });
-			    return result.join(' ');
-			}).addClass(saveCol);
+			this.className = this.className.replace(/col\d+/g, '');
     });
 };
 
