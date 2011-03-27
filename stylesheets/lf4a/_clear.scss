@@ -1,16 +1,3 @@
-@mixin self-clear {
-	clear: both;
-	&:after {
-		content: ".";
-		display: block;
-		height: 0;
-		clear: both;
-		visibility: hidden;
-	}
-	*:first-child+html & { min-height: 1px; } // hack ie7
-	* html & { height: 1%; } // hack ie6
-}
-
 .group, .section, section {
-	@include self-clear;
+	@include clearfix;
 }
